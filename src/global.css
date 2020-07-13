@@ -1,0 +1,23 @@
+/* 此文件不走 css modules，且会自动被引入，可以在这里写全局样式，以及做样式覆盖 */
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+  img {
+    vertical-align: initial;
+  }
+  
+  body {
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+    font-family: 'Helvetica Neue', Tahoma, Arial, PingFangSC-Regular, 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+    line-height: normal;
+    background-color: #fff;
+  }
+  
+  *，*::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  

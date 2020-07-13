@@ -1,0 +1,37 @@
+
+.myIndex{
+  .confirmContainer {
+    width: 560px;
+    height: 254px;
+    background: rgba(255, 255, 255, 1);
+    border-radius: 20px;
+    z-index: 10;
+    .title {
+      height: 155px;
+      font-size: 36px;
+      font-weight: 400;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .operate {
+      height: 97px;
+      display: flex;
+      font-size: 36px;
+      border-top: 1px solid #e6e6e6;
+      .btn {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #999999;
+        &:last-child {
+          border-left: 1px solid #e6e6e6;
+          font-weight: 500;
+          color: #ff9c00;
+        }
+      }
+    }
+  }
+}
+

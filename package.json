@@ -5,6 +5,9 @@
     "build": "umi build",
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
+    "build:test": "cross-env BUILD_ENV=test umi build",
+    "build:prod": "cross-env BUILD_ENV=prod umi build",
+    "build:live": "cross-env BUILD_ENV=live umi build",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage"
   },
@@ -24,8 +27,10 @@
     "@umijs/preset-react": "1.x",
     "@umijs/test": "^3.2.9",
     "antd-mobile": "^2.3.3",
+    "axios": "^0.19.2",
     "lint-staged": "^10.0.7",
     "prettier": "^1.19.1",
+    "qs": "^6.9.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "umi": "^3.2.9",
@@ -33,6 +38,7 @@
   },
   "devDependencies": {
     "@umijs/plugin-sass": "^1.1.1",
+    "cross-env": "^7.0.2",
     "postcss-pxtorem": "^5.1.1"
   }
 }

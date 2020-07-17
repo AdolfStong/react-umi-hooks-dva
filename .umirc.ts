@@ -4,12 +4,13 @@
  * @Author: Shentong
  * @Date: 2020-07-10 19:11:08
  * @LastEditors: Shentong
- * @LastEditTime: 2020-07-13 22:26:48
+ * @LastEditTime: 2020-07-17 21:31:37
  */
 
 import { defineConfig } from 'umi';
 import routes from './src/routes';
 const px2rem = require('postcss-pxtorem');
+console.log('.umirc.process.env:', process.env.BUILD_ENV);
 
 const _interopRequireDefault: Function = (obj: any) => {
   return obj && obj.__esModule ? obj : { default: obj };
@@ -34,4 +35,13 @@ export default defineConfig({
   },
   routes,
   extraPostCSSPlugins: [pxtorem2(px2remOpts)],
+  proxy: {
+    '/api': {
+      target: 'https://test.meixiu.mobi/',
+      changeOrigin: true,
+      // pathRewrite: {
+      //   '^/api': 'hhh',
+      // },
+    },
+  },
 });

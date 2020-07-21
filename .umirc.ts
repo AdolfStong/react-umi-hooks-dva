@@ -4,7 +4,7 @@
  * @Author: Shentong
  * @Date: 2020-07-10 19:11:08
  * @LastEditors: Shentong
- * @LastEditTime: 2020-07-17 21:31:37
+ * @LastEditTime: 2020-07-21 12:00:24
  */
 
 import { defineConfig } from 'umi';
@@ -40,7 +40,7 @@ export default defineConfig({
       target: 'https://test.meixiu.mobi/',
       changeOrigin: true,
       // pathRewrite: {
-      //   '^/api': 'hhh',
+      //   '^/api': '/api',
       // },
     },
   },

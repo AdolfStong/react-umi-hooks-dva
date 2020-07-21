@@ -1,23 +1,138 @@
-/* 此文件不走 css modules，且会自动被引入，可以在这里写全局样式，以及做样式覆盖 */
-* {
-    padding: 0;
-    margin: 0;
-  }
-  
-  img {
-    vertical-align: initial;
-  }
-  
-  body {
-    margin: 0;
-    -webkit-overflow-scrolling: touch;
-    font-family: 'Helvetica Neue', Tahoma, Arial, PingFangSC-Regular, 'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
-    line-height: normal;
-    background-color: #fff;
-  }
-  
-  *，*::before,
-  *::after {
-    box-sizing: border-box;
-  }
-  
+/*! minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+img,
+embed,
+iframe,
+object,
+audio,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+  text-align: left;
+}
+.pull-to-refresh-layer {
+  margin-top: -60px !important;
+  height: 60px !important;
+  background: #666 !important;
+}
+.border-1px::before,
+.border-1px::after {
+  content: ' ';
+  position: absolute;
+  pointer-events: none;
+  box-sizing: border-box;
+  left: 0px;
+  right: 0;
+  transform: scaleY(0.5);
+}
+.border-1px::before {
+  top: 0;
+  border-top: 1px solid #ebedf0;
+}
+.border-1px::after {
+  bottom: 0;
+  border-bottom: 1px solid #ebedf0;
+}
+
+input {
+  color: #000;
+  font-size: 17px;
+  appearance: none;
+  width: 100%;
+  padding: 2px 0;
+  border: 0;
+  background-color: transparent;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  /* border-color: #9ecaed;
+  box-shadow: 0 0 10px #9ecaed; */
+}
+
+body {
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+  font-family: 'Helvetica Neue', Tahoma, Arial, PingFangSC-Regular,
+    'Hiragino Sans GB', 'Microsoft Yahei', sans-serif;
+  line-height: normal;
+  background-color: #fff;
+}
+
+*，*::before,
+*::after {
+  box-sizing: border-box;
+}

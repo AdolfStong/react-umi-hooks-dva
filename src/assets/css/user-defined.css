@@ -1,0 +1,154 @@
+.back-btn--arrow-left{
+  position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    border-radius: 50%;
+    background: rgba(0,0,0,.5);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 14px;
+}
+.lf{
+  float: left
+}
+.rt{
+  float: right;
+}
+.clear:after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.img-loadlazy{
+  justify-content:center;
+  align-items:center;
+  display:flex;
+}
+.img-loadlazy img{
+  border-radius: 3px;
+}
+.img-loadlazy img[lazy=loading] {
+  width: 25px;
+  height: 25px;
+}
+.img-loadlazy img[lazy=loaded] {
+  height: 100%;
+  width:100%;
+}
+.no-margin-right:nth-child(even){
+  margin-right:0 !important
+}
+.overflow-title{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.my_search-input{
+  width:305px;
+  height:24px;
+  background:rgba(239,239,239,1);
+  border-radius:3px;
+  border: none;
+  padding-left: 6px;
+}
+.arrow{
+  display:inline-block;
+  border-top:2px solid;
+  border-right:2px solid;
+  width:7px;
+  height:7px;
+  border-color:#999;
+  margin-left:5px;
+}
+.arrow-right{
+  transform: rotate(45deg);
+}
+.arrow-up{
+  transform: rotate(-45deg);
+}
+.arrow-down{
+  transform:rotate(135deg);
+}
+.top-arrow--left{
+  font-size: 24px;
+  font-weight: 600;
+  width: 34px;
+  text-align: center;
+}
+.header-back-btn{
+  font-size: 24px;
+  color:#333333;
+  display: flex;
+}
+/* .user-defined-overlay */
+.user-defined-overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.user-defined-fade{
+  transition: all .3s linear;
+}
+.overlay-fade--in{
+  background: rgba(0, 0, 0, .7);
+}
+.overlay-fade--out{
+  background: rgba(0, 0, 0, 0);
+  z-index: -9999;
+}
+/* .user-defined-overlay */
+
+/* user-defined-poup */
+.user-defined--poup{
+  position: fixed;
+  width: 100%;
+  top: auto;
+  bottom: 0;
+  right: auto;
+  left: 50%;
+  transition: .3s ease-out;
+  transform: translate3d(-50%, 100%, 0);
+  z-index: 99999;
+}
+.user-defined--poup.enter{
+  transform: translate3d(-50%, 0, 0);
+}
+/* user-defined-poup */
+::-webkit-scrollbar {
+  display: none;
+  background-color:transparent;
+}
+.close{
+  font: normal normal normal 14px/1 "vant-icon";
+  font-size: 20px;
+  color: #969799;
+}
+.close:before {
+  content: "\F034";
+}
+.header-right-btn{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%)
+}
+.arrow-left{
+  transform: rotate(-135deg);
+}
+.arrow{
+  display:inline-block;
+  border-top:2px solid;
+  border-right:2px solid;
+  width:14px;
+  height:14px;
+  border-color:#999;
+  margin-left:5px;
+}

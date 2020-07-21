@@ -1,0 +1,117 @@
+/*! minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+
+ul {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+img,
+embed,
+iframe,
+object,
+audio,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+iframe {
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+  text-align: left;
+}
+#app, .page-view, body, html, .home, .home-content {
+  background: #fff;
+  font-family: PingFangHK-Regular,arial,微软雅黑,sans-serif;
+  height: 100%;
+  width: 100%;
+  /* overflow: scroll; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  /* color: #fff; */
+}
+.pull-to-refresh-layer{
+  margin-top: -60px !important;
+  height: 60px !important;
+  background:#666 !important
+}
+.border-1px::before,
+.border-1px::after{
+  content: ' ';
+  position: absolute;
+  pointer-events: none;
+  box-sizing: border-box;
+  left: 0px;
+  right: 0;
+  transform: scaleY(0.5);
+}
+.border-1px::before{
+  top: 0;
+  border-top: 1px solid #ebedf0;
+}
+.border-1px::after{
+  bottom: 0;
+  border-bottom: 1px solid #ebedf0;
+}

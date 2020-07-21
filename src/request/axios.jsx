@@ -16,7 +16,6 @@ const defaultHeaders = {
 };
 
 const request = async (url, option) => {
-  console.log('requst-opetion', option);
   const { headers, method = 'GET' } = option;
   const requstOption = {
     ...defauleOption,
@@ -37,28 +36,34 @@ const request = async (url, option) => {
     requstOption.data = Qs.stringify(requstOption.data);
   }
 
-  const response = await axios(url, requstOption);
+  let response;
+  try {
+    response = await axios(url, requstOption);
+    console.log(Object.prototype.toString.call(response, 'res--'));
+    return response;
+  } catch (err) {
+    Toast.info(err, 2);
+  }
 };
+
+// request拦截器
+axios.interceptors.request.use(
+  // 在发送请求之前做些什么
+  config => config,
+  error => {
+    // 对请求错误做些什么
+    Promise.reject(error);
+  },
+);
 
 axios.interceptors.response.use(
   response => {
-    console.log('axios.interceptors.response', response);
-    // let _data = null;
-    // if (response.status === 200) {
-    //   _data = response.data;
-    //   if (_.isPlainObject(_data) && _data.code) {
-    //     switch (_data.code) {
-    //       case '0':
-    //         _data = null;
-    //         break;
-    //       case '2':
-    //       default:
-    //         Toast(_data.errors || '服务器异常');
-    //         break;
-    //     }
-    //   }
-    // }
-    // return _data;
+    const { data, status } = response;
+    if (status === 200 && data.code === 0) {
+      return data;
+    } else {
+      return Promise.reject(data.errors || '服务器异常');
+    }
   },
   err => {
     console.log('axios.interceptors.err', err);
@@ -95,5 +100,7 @@ axios.interceptors.response.use(
     //     return err.response;
   },
 );
+
+console.log('axios', request);
 
 export default request;

@@ -15,6 +15,8 @@ const defaultHeaders = {
   'Content-Type': 'application/x-www-form-urlencoded',
 };
 
+const dealWithError = err => {};
+
 const request = async (url, option) => {
   const { headers, method = 'GET' } = option;
   const requstOption = {
@@ -39,10 +41,11 @@ const request = async (url, option) => {
   let response;
   try {
     response = await axios(url, requstOption);
-    console.log(Object.prototype.toString.call(response, 'res--'));
     return response;
   } catch (err) {
-    Toast.info(err, 2);
+    /** 所有的错误，都已在拦截器里处理了 */
+    // console.log('axios接口请求错误：', err);
+    return Promise.reject(err.data);
   }
 };
 
@@ -66,41 +69,23 @@ axios.interceptors.response.use(
     }
   },
   err => {
-    console.log('axios.interceptors.err', err);
-    //     switch (err.response.status) {
-    //       case 400:
-    //         // Utils.removeCookie('token')
-    //         Toast('参数错误');
-    //         break;
-    //       case 401: {
-    //         // 有登录状态的token, 但已离职的老师会提示
-    //         if (document.getElementsByClassName('el-message').length === 0) {
-    //           Toast('没有权限，禁止登录');
-    //         }
-    //         // 退出登录
-    //         setTimeout(() => {
-    //           removeToken();
-    //           location.href = `/login/#/`;
-    //         }, 1000);
-    //         break;
-    //       }
-    //       case 404: {
-    //         Toast('接口不存在');
-    //         break;
-    //       }
-    //       case 420: {
-    //         Toast('无权限执行');
-    //         break;
-    //       }
-    //       case 500:
-    //       default:
-    //         Toast('服务器异常');
-    //         break;
-    //     }
-    //     return err.response;
+    const errMessage = {
+      400: '参数错误',
+      401: '暂无权限',
+      404: '接口不存在',
+      500: '服务器异常',
+      502: 'Nginx Error',
+    };
+    const {
+      response: { status },
+    } = err;
+
+    Toast.info(errMessage[status], 2, () => {
+      status === '401' && (location.href = `/login/`);
+    });
+
+    return Promise.reject(err.response);
   },
 );
-
-console.log('axios', request);
 
 export default request;

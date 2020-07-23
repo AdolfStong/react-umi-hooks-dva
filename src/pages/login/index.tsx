@@ -15,10 +15,10 @@ const LoginInfo = (props: any) => {
 
   useEffect(() => {}, [mobile, code]);
 
-  const loginHandle: Function = () => {
+  const loginHandle: Function = async () => {
     // duration = 0 时，onClose 无效，toast 不会消失；隐藏 toast 需要手动调用 hide
-    Toast.loading('正在登录...', 1);
-    dispatch({
+    Toast.loading('正在登录...', 0);
+    const params = {
       type: 'login/login',
       payload: {
         data: {
@@ -26,7 +26,15 @@ const LoginInfo = (props: any) => {
           code,
         },
       },
-    });
+    };
+    try {
+      const logRes = await dispatch(params);
+      console.log('login res', logRes);
+    } catch (err) {
+      console.log('err', err);
+    }
+
+    Toast.hide();
   };
 
   return (
